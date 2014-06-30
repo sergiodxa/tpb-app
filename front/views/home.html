@@ -10,3 +10,24 @@
     <button type="reset" class="btn btn-danger">Clear search</button>
   </div>
 </form>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Seeders</th>
+        <th>Leechers</th>
+        <th>Magnet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="torrent in results">
+        <td ng-bind="torrent.name"></td>
+        <td ng-bind="torrent.seeders"></td>
+        <td ng-bind="torrent.leechers"></td>
+        <td ng-bind="torrent.magnetLink"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

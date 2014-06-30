@@ -22,10 +22,16 @@ function HomeCtrl ($http, $scope) {
       params: {
         query : $scope.query
       }
-    }).success(function (data) {
+    }).success(function (data, status, headers, config) {
+      console.log(status);
+      console.log(headers);
+      console.log(config);
+      $scope.results = data;
+    }).error(function (data, status, headers, config) {
       console.log(data);
-    }).error(function (data) {
-      console.log(data);
+      console.log(status);
+      console.log(headers);
+      console.log(config);
     });
   };
 };
