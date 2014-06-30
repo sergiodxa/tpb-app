@@ -1,0 +1,31 @@
+{
+  "name": "TPB-App",
+  "version": "0.0.0",
+  "description": "WebApp in NodeJS to search torrents in The Pirate Bay",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sergiodxa/tpb-app.git"
+  },
+  "keywords": [
+    "tpb",
+    "torrent",
+    "search"
+  ],
+  "author": "Sergio Daniel Xalambrí",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergiodxa/tpb-app/issues"
+  },
+  "homepage": "https://github.com/sergiodxa/tpb-app",
+  "dependencies": {
+    "logfmt": "^1.1.2",
+    "express": "^4.4.5"
+  },
+  "engines": {
+    "node": "0.10.26"
+  }
+}
