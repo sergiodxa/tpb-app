@@ -1,0 +1,31 @@
+{
+  "name": "TPB-App",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sergiodxa/tpb-app",
+  "authors": [
+    "Sergio Daniel Xalambrí <sergio@xalambri.com.ar>"
+  ],
+  "description": "WebApp in NodeJS to search torrents in The Pirate ",
+  "main": "server.js",
+  "keywords": [
+    "tpb",
+    "torrent",
+    "search"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "front/vendor"
+  ],
+  "dependencies": {
+    "angular"      : "1.2.16",
+    "angular-route": "1.2.16",
+    "bootstrap"    : "3.1.1",
+    "jquery"       : "2.1.1"
+  }
+}
