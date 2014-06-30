@@ -4,7 +4,7 @@
   "description": "WebApp in NodeJS to search torrents in The Pirate Bay",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
