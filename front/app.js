@@ -30,6 +30,8 @@ function HomeCtrl ($http, $scope) {
         $scope.error = false;
         $scope.noResults = false;
         $scope.results = data;
+
+        $('html, body').animate({ scrollTop:  $('#results').offset().top - 50 }, 800);
       }
     }).error(function (data, status, headers, config) {
       $scope.noResults = false;

@@ -18,7 +18,6 @@ app.get('/search', function (req, res) {
       category: 'all',
       orderBy : 'seeds desc'
   }).then(function (results){
-      console.log(results);
       res.send(results);
   }).catch(function (err){
       res.send(false);

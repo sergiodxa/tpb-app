@@ -24,23 +24,29 @@
   </p>
 </div>
 
-<div class="col-xs-12" ng-if="results">
+<div class="col-xs-12" id="results" ng-if="results">
   <div class="alert alert-success">
     Yeah! You were able to find the torrent you are searching for!
   </div>
   <div class="row">
-    <div class="col-xs-3">Name</div>
-    <div class="col-xs-3">Seeders</div>
-    <div class="col-xs-3">Leechers</div>
-    <div class="col-xs-3">Magnet</div>
+    <div class="col-xs-6">Name</div>
+    <div class="col-xs-1">Size</div>
+    <div class="col-xs-1">Seeders</div>
+    <div class="col-xs-1">Leechers</div>
+    <div class="col-xs-1">Upload date</div>
+    <div class="col-xs-1">Category name</div>
+    <div class="col-xs-1">Magnet</div>
   </div>
   <div class="row" ng-repeat="torrent in results">
     <div class="col-xs-3 text-overflow" >
-      <span ng-bind="torrent.name" title="torrent.name"></span>
+      <span ng-bind="torrent.name" title="{{torrent.name}}"></span>
     </div>
-    <div class="col-xs-3" ng-bind="torrent.seeders"></div>
-    <div class="col-xs-3" ng-bind="torrent.leechers"></div>
-    <div class="col-xs-3">
+    <div class="col-xs-6" ng-bind="torrent.size"></div>
+    <div class="col-xs-1" ng-bind="torrent.seeders"></div>
+    <div class="col-xs-1" ng-bind="torrent.leechers"></div>
+    <div class="col-xs-1" ng-bind="torrent.uploadDate"></div>
+    <div class="col-xs-1" ng-bind="torrent.category.name"></div>
+    <div class="col-xs-1">
       <a class="btn btn-default" ng-href="torrent.magnet">Download</a>
     </div>
   </div>
