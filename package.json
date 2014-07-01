@@ -1,6 +1,6 @@
 {
   "name": "TPB-App",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "WebApp in NodeJS to search torrents in The Pirate Bay",
   "main": "server.js",
   "scripts": {

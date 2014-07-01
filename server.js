@@ -3,7 +3,7 @@ var logfmt  = require('logfmt');
 var tpb     = require('thepiratebay');
 var app     = express();
 
-//app.use(logfmt.requestLogger());
+app.use(logfmt.requestLogger());
 
 app.use(express.static(__dirname + '/front'));
 
@@ -12,10 +12,14 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', function (req, res) {
+  // get the search query from the URL
   var searchQuery = req.query.searchQuery;
+  var pageQuery   = req.query.pageQuery || '0';
 
+  // call method search of tpb with the params searchQuery, all categories, order descendant by seeds and if the query is successful send the results to the response, else send false.
   tpb.search(searchQuery, {
       category: 'all',
+      page    : pageQuery,
       orderBy : 'seeds desc'
   }).then(function (results){
       res.send(results);
