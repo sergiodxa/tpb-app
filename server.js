@@ -25,7 +25,9 @@ app.get('/search', function (req, res) {
       console.log([res]);
       res.send([res]);
     }
-  })
+  });
+
+  res.send('hola');
 });
 
 var port = Number(process.env.PORT || 5000);
