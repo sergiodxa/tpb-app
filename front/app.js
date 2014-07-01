@@ -4,13 +4,14 @@
 * WebApp in NodeJS to search torrents in The Pirate Bay
 */
 angular.module('TPBApp', ['ngRoute'])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $compileProvider) {
     $routeProvider
       .when('/', {
         controller : HomeCtrl,
         templateUrl: 'views/home.html'
       })
       .otherwise({ redirectTo: '/' });
+    $compileProvider.urlSanitizationWhitelist(/^\s*(magnet|file):/);
   });
 
 function HomeCtrl ($http, $scope) {
