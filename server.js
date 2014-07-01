@@ -20,8 +20,10 @@ app.get('/search', function (req, res) {
     orderBy : 'seeds desc'
   }, function (err, res) {
     if (err) {
+      console.log(err);
       res.send(false);
     } else {
+      console.log(res);
       res.send(res);
     }
   })
