@@ -35,7 +35,9 @@
     <div class="col-xs-3">Magnet</div>
   </div>
   <div class="row" ng-repeat="torrent in results">
-    <div class="col-xs-3 text-overflow" ng-bind="torrent.name"></div>
+    <div class="col-xs-3 text-overflow" >
+      <span ng-bind="torrent.name" title="torrent.name"></span>
+    </div>
     <div class="col-xs-3" ng-bind="torrent.seeders"></div>
     <div class="col-xs-3" ng-bind="torrent.leechers"></div>
     <div class="col-xs-3">
