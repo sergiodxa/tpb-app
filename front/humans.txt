@@ -1,0 +1,15 @@
+/* TEAM */
+
+FullStack JavaScript Developer: Sergio Daniel Xalambrí
+Contact: sergio [at] xalambri [dot] com [dot] ar
+Twitter: @sergiodxa
+Location: Buenos Aires, Argentina.
+
+
+/* SITE */
+
+Last update: 6/30/2014
+Standards: HTML5, CSS3, Responsive Web Design
+Frontend Libraries: AngularJS, Bootstrap & jQuery.
+Backend Libraries: Bower, ExpressJS, logfmt, thepiratebay & NodeJS
+Software: Sublime Text 3

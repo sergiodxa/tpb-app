@@ -38,10 +38,10 @@
     <div class="col-md-1 col-sm-2 hidden-xs">Leechers</div>
     <div class="col-md-2 col-sm-3 hidden-xs">Upload date</div>
     <div class="col-sm-2 hidden-xs">Category</div>
-    <div class="col-sm-1 col-xs-3">Magnet</div>
+    <div class="col-sm-1 col-xs-2">Magnet</div>
   </div>
   <div class="row" ng-repeat="torrent in results">
-    <div class="col-md-4 col-sm-2 col-xs-8 text-overflow" >
+    <div class="col-md-4 col-sm-2 col-xs-10 text-overflow" >
       <span ng-bind="torrent.name" title="{{torrent.name}}"></span>
     </div>
     <div class="col-sm-1 hidden-xs" ng-bind="torrent.size"></div>
