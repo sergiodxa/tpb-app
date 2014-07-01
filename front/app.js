@@ -5,14 +5,14 @@
 */
 angular.module('TPBApp', ['ngRoute'])
   .config(function ($routeProvider, $compileProvider) {
-    $routeProvider
-      .when('/', {
-        controller : HomeCtrl,
-        templateUrl: 'views/home.html'
-      })
-      .otherwise({ redirectTo: '/' });
-    $compileProvider.urlSanitizationWhitelist(/^\s*(magnet|file):/);
-  });
+      $compileProvider.aHrefSanitizationWhitelist(/^\s*(magnet|file):/);
+      $routeProvider
+        .when('/', {
+          controller : HomeCtrl,
+          templateUrl: 'views/home.html'
+        })
+        .otherwise({ redirectTo: '/' });
+    });
 
 function HomeCtrl ($http, $scope) {
   $scope.search = function () {
