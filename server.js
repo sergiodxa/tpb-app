@@ -3,7 +3,7 @@ var logfmt  = require('logfmt');
 var tpb     = require('thepiratebay');
 var app     = express();
 
-app.use(logfmt.requestLogger());
+//app.use(logfmt.requestLogger());
 
 app.use(express.static(__dirname + '/front'));
 
@@ -12,22 +12,18 @@ app.get('/', function (req, res) {
 });
 
 app.get('/search', function (req, res) {
-  var query = req.query.query;
+  var searchQuery = req.query.searchQuery;
 
-  tpb.search(query, {
-    category: 'all',
-    page    : 0,
-    orderBy : 'seeds desc'
-  }, function (err, res) {
-    if (err) {
+  tpb.search(searchQuery, {
+      category: 'all',
+      orderBy : 'seeds desc'
+  }).then(function (results){
+      console.log(results);
+      res.send(results);
+  }).catch(function (err){
       res.send(false);
-    } else {
-      console.log([res]);
-      res.send([res]);
-    }
   });
 
-  res.send('hola');
 });
 
 var port = Number(process.env.PORT || 5000);
