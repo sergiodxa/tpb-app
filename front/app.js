@@ -15,7 +15,6 @@ angular.module('TPBApp', ['ngRoute'])
 
 function HomeCtrl ($http, $scope) {
   $scope.search = function () {
-    console.log('ok');
     $http({
       method: 'GET',
       url   : '/search',
@@ -26,12 +25,16 @@ function HomeCtrl ($http, $scope) {
       console.log(status);
       console.log(headers);
       console.log(config);
-      $scope.results = data;
+      if (data == false) {
+        $scope.noResults = true;
+      } else {
+        $scope.results = data;
+      }
     }).error(function (data, status, headers, config) {
-      console.log(data);
       console.log(status);
       console.log(headers);
       console.log(config);
+      $scope.error = true;
     });
   };
 };

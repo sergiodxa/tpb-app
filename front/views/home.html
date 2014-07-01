@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" ng-submit="search()">
+<form class="form-horizontal col-xs-12" role="form" ng-submit="search()">
   <legend>Search torrent</legend>
 
   <div class="form-group">
@@ -11,23 +11,35 @@
   </div>
 </form>
 
-<div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Seeders</th>
-        <th>Leechers</th>
-        <th>Magnet</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="torrent in results">
-        <td ng-bind="torrent.name"></td>
-        <td ng-bind="torrent.seeders"></td>
-        <td ng-bind="torrent.leechers"></td>
-        <td ng-bind="torrent.magnetLink"></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="col-xs-12 alert alert-warning" ng-if="noResults">
+  <p>
+    Sorry, but we can't find the torrent you are searching for.
+  </p>
+</div>
+
+<div class="col-xs-12 alert alert-danger" ng-if="error">
+  <p>
+    Sorry, we have a problem right now with the app.<br>
+    Please try later.
+  </p>
+</div>
+
+<div class="col-xs-12" ng-if="results">
+  <div class="alert alert-success">
+    Yeah! You were able to find the torrent you are searching for!
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-3">Seeders</div>
+    <div class="col-xs-3">Leechers</div>
+    <div class="col-xs-3">Magnet</div>
+  </div>
+  <div class="row" ng-repeat="torrent in results">
+    <div class="col-xs-3 text-overflow" ng-bind="torrent.name"></div>
+    <div class="col-xs-3" ng-bind="torrent.seeders"></div>
+    <div class="col-xs-3" ng-bind="torrent.leechers"></div>
+    <div class="col-xs-3">
+      <a class="btn btn-default" ng-href="torrent.magnet">Download</a>
+    </div>
+  </div>
 </div>

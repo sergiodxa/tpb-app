@@ -4,11 +4,31 @@
   <meta charset="UTF-8">
   <title>TPB App</title>
   <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap-theme.min.css">
+  <style>
+    .text-overflow {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .row {
+      margin-bottom: 10px;
+    }
+    .form-horizontal {
+      margin-top: 10px;
+    }
+    .container {
+      -webkit-box-sizing: boder-box;
+      -moz-box-sizing: boder-box;
+      box-sizing: boder-box;
+      padding: 0 25px;
+    }
+  </style>
 </head>
 <body class="container">
 
-  <header class="jumbotron">
-    <h1>The Pirate Bay WebApp</h1>
+  <header class="jumbotron hidden-xs hidden-sm">
+    <h1 class="text-center">The Pirate Bay WebApp</h1>
     <p>
       This WebApp allows you to search The Pirate Bay and get magnetlinks of torrents without having to enter the site.
     </p>
@@ -17,7 +37,7 @@
     </p>
   </header>
 
-  <div data-ng-view></div>
+  <div data-ng-view class="row"></div>
 
   <script src="./vendor/jquery/dist/jquery.min.js"></script>
   <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
