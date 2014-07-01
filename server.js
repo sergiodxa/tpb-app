@@ -1,9 +1,6 @@
 var express = require('express');
-var logfmt  = require('logfmt');
 var tpb     = require('thepiratebay');
 var app     = express();
-
-app.use(logfmt.requestLogger());
 
 app.use(express.static(__dirname + '/front'));
 
