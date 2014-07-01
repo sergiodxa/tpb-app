@@ -5,7 +5,9 @@
 */
 angular.module('TPBApp', ['ngRoute'])
   .config(function ($routeProvider, $compileProvider) {
+
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(magnet|file):/);
+
       $routeProvider
         .when('/', {
           controller : HomeCtrl,
