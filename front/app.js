@@ -26,14 +26,20 @@ function HomeCtrl ($http, $scope) {
       console.log(headers);
       console.log(config);
       if (data == false) {
+        $scope.error = true;
+        $scope.results = false;
         $scope.noResults = true;
       } else {
+        $scope.error = true;
+        $scope.noResults = false;
         $scope.results = data;
       }
     }).error(function (data, status, headers, config) {
       console.log(status);
       console.log(headers);
       console.log(config);
+      $scope.noResults = false;
+      $scope.results = false;
       $scope.error = true;
     });
   };
