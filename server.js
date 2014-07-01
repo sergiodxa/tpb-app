@@ -22,6 +22,7 @@ app.get('/search', function (req, res) {
     if (err) {
       res.send(false);
     } else {
+      console.log([res]);
       res.send([res]);
     }
   })
