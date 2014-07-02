@@ -1,18 +1,18 @@
-<form class="form-inline col-xs-12" role="form" ng-submit="search()">
+<form class="form-inline col-xs-12" role="form" data-ng-submit="search()">
   <legend>Search torrent</legend>
 
   <div class="form-group">
     <label for="query">
       What are you searching for?
     </label>
-    <input class="form-control" type="text" id="query" name="query" ng-model="query" autofocus>
+    <input class="form-control" type="text" id="query" name="query" data-ng-model="query" autofocus>
   </div>
 
   <div class="form-group">
     <label for="orderby">
       Order by
     </label>
-    <select name="orderby" id="orderby" ng-model="orderBy" class="form-control">
+    <select name="orderby" id="orderby" data-ng-model="orderBy" class="form-control">
       <option value="name">Name</option>
       <option value="date">Date</option>
       <option value="size">Size</option>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-group">
-    <select name="ascdesc" id="asdesc" ng-model="orderAscDesc" class="form-control">
+    <select name="ascdesc" id="asdesc" data-ng-model="orderAscDesc" class="form-control">
       <option value="asc">Ascendant</option>
       <option value="desc">Descendant</option>
     </select>
@@ -35,14 +35,14 @@
 </form>
 
 <!-- alert if the app can't get results for the query -->
-<div class="col-xs-12 alert alert-warning" ng-if="noResults">
+<div class="col-xs-12 alert alert-warning" data-ng-if="noResults">
   <p>
     Sorry, but we can't find the torrent you are searching for.
   </p>
 </div>
 
 <!-- alert if the app can't get results because an error -->
-<div class="col-xs-12 alert alert-danger" ng-if="error">
+<div class="col-xs-12 alert alert-danger" data-ng-if="error">
   <p>
     Sorry, we have a problem right now with the app.<br>
     Please try later.
@@ -50,7 +50,7 @@
 </div>
 
 <!-- list of results -->
-<div class="col-xs-12" id="results" ng-if="results">
+<div class="col-xs-12" id="results" data-ng-if="results">
   <div class="alert alert-success">
     Yeah! You were able to find the torrent you are searching for!
   </div>
@@ -63,17 +63,17 @@
     <div class="col-sm-2 hidden-xs">Category</div>
     <div class="col-sm-1 col-xs-2">Magnet</div>
   </div>
-  <div class="row" ng-repeat="torrent in results">
+  <div class="row" data-ng-repeat="torrent in results">
     <div class="col-md-4 col-sm-2 col-xs-10 text-overflow" >
-      <span ng-bind="torrent.name" title="{{torrent.name}}"></span>
+      <span data-ng-bind="torrent.name" title="{{torrent.name}}"></span>
     </div>
-    <div class="col-sm-1 hidden-xs" ng-bind="torrent.size"></div>
-    <div class="col-sm-1 hidden-xs" ng-bind="torrent.seeders"></div>
-    <div class="col-md-1 col-sm-2 hidden-xs" ng-bind="torrent.leechers"></div>
-    <div class="col-md-2 col-sm-3 hidden-xs" ng-bind="torrent.uploadDate"></div>
-    <div class="col-sm-2 hidden-xs" ng-bind="torrent.category.name"></div>
+    <div class="col-sm-1 hidden-xs" data-ng-bind="torrent.size"></div>
+    <div class="col-sm-1 hidden-xs" data-ng-bind="torrent.seeders"></div>
+    <div class="col-md-1 col-sm-2 hidden-xs" data-ng-bind="torrent.leechers"></div>
+    <div class="col-md-2 col-sm-3 hidden-xs" data-ng-bind="torrent.uploadDate"></div>
+    <div class="col-sm-2 hidden-xs" data-ng-bind="torrent.category.name"></div>
     <div class="col-sm-1 col-xs-2">
-      <a class="btn btn-default" ng-href="{{torrent.magnetLink}}">
+      <a class="btn btn-default" data-ng-href="{{torrent.magnetLink}}">
         <span class="glyphicon glyphicon-magnet"></span>
         <span class="hidden-xs">Download</span>
       </a>

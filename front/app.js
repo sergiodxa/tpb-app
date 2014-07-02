@@ -36,7 +36,7 @@ function HomeCtrl ($http, $scope) {
         $scope.results = data;
         setTimeout(function() {
           $('html, body').animate({ scrollTop:  $('#results').offset().top - 50 }, 800);
-        }, 1000);
+        }, 500);
       }
     }).error(function (data, status, headers, config) {
       $scope.noResults = false;
