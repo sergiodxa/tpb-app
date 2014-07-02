@@ -22,8 +22,9 @@ function HomeCtrl ($http, $scope) {
       method: 'GET',
       url   : '/search',
       params: {
-        searchQuery: $scope.query,
-        orderBy    : $scope.orderBy + ' ' + $scope.orderAscDesc
+        searchQuery : $scope.query,
+        orderBy     : $scope.orderBy,
+        orderAscDesc: $scope.orderAscDesc
       }
     }).success(function (data, status, headers, config) {
       if (data == false) {
