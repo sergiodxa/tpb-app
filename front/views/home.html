@@ -1,11 +1,34 @@
-<form class="form-horizontal col-xs-12" role="form" ng-submit="search()">
+<form class="form-inline col-xs-12" role="form" ng-submit="search()">
   <legend>Search torrent</legend>
 
   <div class="form-group">
-    <input class="form-control" type="text" id="query" name="query" ng-model="query" placeholder="What are you searching for?" autofocus>
+    <label for="query">
+      What are you searching for?
+    </label>
+    <input class="form-control" type="text" id="query" name="query" ng-model="query" autofocus>
   </div>
 
-  <div class="form-group text-right">
+  <div class="form-group">
+    <label for="orderby">
+      Order by
+    </label>
+    <select name="orderby" id="orderby" ng-model="orderBy" class="form-control">
+      <option value="name">Name</option>
+      <option value="date">Date</option>
+      <option value="size">Size</option>
+      <option value="seeds">Seeds</option>
+      <option value="leeches">Leeches</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select name="ascdesc" id="asdesc" ng-model="orderAscDesc" class="form-control">
+      <option value="asc">Ascendant</option>
+      <option value="desc">Descendant</option>
+    </select>
+  </div>
+
+  <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>
     <button type="reset" class="btn btn-danger">Clear search</button>
   </div>

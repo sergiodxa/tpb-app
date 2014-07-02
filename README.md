@@ -1,8 +1,8 @@
 # TPB App
 * **Author**: Sergio Daniel Xalambrí
-* **Last change**: 6/30/2014
+* **Last change**: 7/01/2014
 * **Twitter**: [@sergiodxa](http://twitter.com/sergiodxa "@sergiodxa")
-* **Version**: 1.0.0
+* **Version**: 1.0.2
 * **WebApp Url**: [http://tpb-app.herokuapp.com/#/](http://tpb-app.herokuapp.com/#/ "http://tpb-app.herokuapp.com/#/")
 
 WebApp in NodeJS to search torrents in The Pirate Bay
@@ -12,7 +12,7 @@ WebApp in NodeJS to search torrents in The Pirate Bay
 First, you need to download the repository, you can download the [ZIP](https://github.com/sergiodxa/tpb-app/archive/master.zip "ZIP") file or clone the repository in your computer using the command:
 
 ```
-git@github.com:sergiodxa/tpb-app.git
+git clone git@github.com:sergiodxa/tpb-app.git
 ```
 
 Later you need to install dependencies using the next commands:
