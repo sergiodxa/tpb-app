@@ -10,13 +10,13 @@ app.get('/', function (req, res) {
 
 app.get('/search', function (req, res) {
   // get the search query from the URL
-  var searchQuery = req.query.searchQuery;
-  var orderBy     = req.query.orderBy;
+  var searchQuery  = req.query.searchQuery;
+  var orderByQuery = req.query.orderBy;
 
   // call method search of tpb with the params searchQuery, all categories, order descendant by seeds and if the query is successful send the results to the response, else send false.
   tpb.search(searchQuery, {
       category: 'all',
-      orderBy : orderBy
+      orderBy : orderByQuery
   }).then(function (results){
       res.send(results);
   }).catch(function (err){
