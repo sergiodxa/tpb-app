@@ -12,7 +12,7 @@ app.get('/search', function (req, res) {
   // get the search query from the URL
   var searchQuery       = req.query.searchQuery;
   var orderByQuery      = req.query.orderBy;
-  var orderAscDescQuery = req.query.orderAscDescQuery;
+  var orderAscDescQuery = req.query.orderAscDesc;
   var queryParams  = {
     category: 'all',
     orderBy : orderByQuery + ' ' + orderAscDescQuery
