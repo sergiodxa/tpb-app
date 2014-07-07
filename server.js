@@ -16,7 +16,7 @@ app.get('/search', function (req, res) {
   // call method search of tpb with the params searchQuery, all categories, order descendant by seeds and if the query is successful send the results to the response, else send false.
   tpb.search(searchQuery, {
     category: 'all',
-    orderBy : 'seeds desc'
+    orderBy : orderByQuery + ' ' + orderAscDescQuery
   }).then(function (results){
       res.send(results);
   }).catch(function (err){
