@@ -35,22 +35,55 @@
 
   </script>
 </head>
-<body class="container">
+<body>
 
-  <header class="jumbotron hidden-xs hidden-sm">
-    <h1 class="text-center">The Pirate Bay WebApp</h1>
-    <p>
-      This WebApp allows you to search The Pirate Bay and get magnet links of torrents without having to enter the site.
-    </p>
-    <p>
-      This WebApp born due to blockade of The Pirate Bay produced in Argentina by ISP companies: <strong>Speedy</strong>, <strong>Movistar</strong>, <strong>Fibertel</strong>, <strong>Prima</strong>, <strong>Telecentro</strong>, <strong>Iplan</strong>, <strong>Arnet</strong>, <strong>Personal</strong>, <strong>Metrotel</strong>, <strong>Sion</strong> and <strong>Claro</strong> under the orders of the <abbr title="Comisión Nacional de Comunicaciones">CNC</abbr>.
-    </p>
-    <p>
-      This WebApp is Open Source and you can find the code in the <a href="https://github.com/sergiodxa/tpb-app" target="_blank">Github repository</a>.<br>
-    </p>
-  </header>
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <a class="navbar-brand" href="#/">TPB App</a>
+  </nav>
 
-  <div data-ng-view class="row"></div>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-8" data-ng-view>
+      </div>
+      <div class="col-md-4" ng-controller="SidebarCtrl">
+        <form class="form col-xs-12" role="form" data-ng-submit="search()">
+          <legend class="text-center" >Search torrent</legend>
+
+          <div class="form-group">
+            <label for="query">
+              What are you searching for?
+            </label>
+            <input class="form-control" type="text" id="query" name="query" data-ng-model="query">
+          </div>
+
+          <div class="form-group">
+            <label for="orderby">
+              Order by
+            </label>
+            <select name="orderby" id="orderby" data-ng-model="orderBy" class="form-control">
+              <option value="name">Name</option>
+              <option value="date">Date</option>
+              <option value="size">Size</option>
+              <option value="seeds">Seeds</option>
+              <option value="leeches">Leeches</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select name="ascdesc" id="asdesc" data-ng-model="orderAscDesc" class="form-control">
+              <option value="asc">Ascendant</option>
+              <option value="desc">Descendant</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Clear search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <script src="./vendor/jquery/dist/jquery.min.js"></script>
   <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
