@@ -63,7 +63,10 @@
     </div>
     <!-- result -->
     <div class="row" data-ng-repeat="torrent in results">
-      <div class="col-xs-2 text-center" data-ng-bind="torrent.category.name"></div>
+      <div class="col-xs-2 text-center">
+        <div data-ng-bind="torrent.category.name"></div>
+        <small data-ng-bind="torrent.subcategory.name"></small>
+      </div>
       <div class="col-xs-4 col-sm-7">
         <div class="text-overflow">
           <span data-ng-bind="torrent.name" title="{{torrent.name}}"></span>
