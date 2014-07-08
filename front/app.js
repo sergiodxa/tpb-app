@@ -12,7 +12,7 @@ angular.module('TPBApp', ['ngRoute'])
         .when('/', {
           templateUrl: 'views/home.html'
         })
-        .when('/results/:query/:order/:ascdesc', {
+        .when('/results/:query/:category/:order/:ascdesc', {
           controller : ResultsCtrl,
           templateUrl: 'views/results.html'
         })
@@ -21,14 +21,15 @@ angular.module('TPBApp', ['ngRoute'])
 
 function ResultsCtrl ($http, $scope, $routeParams) {
 
-  var query        = $routeParams.query;
-  var orderBy      = $routeParams.order;
+  var category     = $routeParams.category;
   var orderAscDesc = $routeParams.ascdesc;
+  var orderBy      = $routeParams.order;
+  var query        = $routeParams.query;
 
-  if (sessionStorage[query + orderBy + orderAscDesc]) {
+  if (sessionStorage[query + category + orderBy + orderAscDesc]) {
     $scope.error = false;
     $scope.noResults = false;
-    $scope.results = JSON.parse(sessionStorage[query + orderBy + orderAscDesc]);
+    $scope.results = JSON.parse(sessionStorage[query + category + category + orderBy + orderAscDesc]);
   } else {
     $http({
       method: 'GET',
@@ -36,7 +37,8 @@ function ResultsCtrl ($http, $scope, $routeParams) {
       params: {
         searchQuery : query,
         orderBy     : orderBy,
-        orderAscDesc: orderAscDesc
+        orderAscDesc: orderAscDesc,
+        category    : category
       }
     }).success(function (data, status, headers, config) {
       if (data == false) {
@@ -60,11 +62,13 @@ function ResultsCtrl ($http, $scope, $routeParams) {
 function SidebarCtrl ($scope) {
   $scope.orderBy      = 'seeds';
   $scope.orderAscDesc = 'desc';
+  $scope.category     = '0';
   $scope.search = function () {
     var query        = $scope.query;
-    var orderBy      = $scope.orderBy;
-    var orderAscDesc = $scope.orderAscDesc;
+    var orderBy      = $scope.orderBy || 'seeds';
+    var orderAscDesc = $scope.orderAscDesc || 'desc';
+    var category     = $scope.category || '0'
 
-    window.location  = '#/results/' + query + '/' + orderBy + '/' + orderAscDesc;
+    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc;
   }
 }
