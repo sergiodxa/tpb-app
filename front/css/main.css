@@ -1,0 +1,94 @@
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.row {
+  margin-bottom: 10px;
+}
+.form-horizontal {
+  margin-top: 10px;
+}
+.container {
+  -webkit-box-sizing: boder-box;
+  -moz-box-sizing: boder-box;
+  box-sizing: boder-box;
+  padding: 0 25px;
+}
+/**
+ * (C)Leanest CSS spinner ever by Lea Verou
+ */
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(1turn); }
+}
+@-moz-keyframes spin {
+  to { -moz-transform: rotate(1turn); }
+}
+@-o-keyframes spin {
+  to { -o-transform: rotate(1turn); }
+}
+@keyframes spin {
+  to { transform: rotate(1turn); }
+}
+.loader {
+  position: relative;
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  margin: 0 .5em;
+  font-size: 12px;
+  text-indent: 999em;
+  overflow: hidden;
+  -webkit-animation: spin 1s infinite steps(8);
+  -moz-animation: spin 1s infinite steps(8);
+  -o-animation: spin 1s infinite steps(8);
+  animation: spin 1s infinite steps(8);
+}
+.small.loader {
+  font-size: 6px;
+}
+.large.loader {
+  font-size: 24px;
+}
+.loader:before,
+.loader:after,
+.loader > div:before,
+.loader > div:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2.25em; /* (container width - part width)/2  */
+  width: .5em;
+  height: 1.5em;
+  border-radius: .2em;
+  background: #eee;
+  box-shadow: 0 3.5em #eee; /* container height - part height */
+  -webkit-transform-origin: 50% 2.5em; /* container height / 2 */
+  -moz-transform-origin: 50% 2.5em; /* container height / 2 */
+  -o-transform-origin: 50% 2.5em; /* container height / 2 */
+  transform-origin: 50% 2.5em; /* container height / 2 */
+}
+.loader:before {
+  background: #555;
+}
+.loader:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background: #777;
+}
+.loader > div:before {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  background: #999;
+}
+.loader > div:after {
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  background: #bbb;
+}

@@ -98,6 +98,13 @@
   </form>
   <!-- /visible only in sm and xs -->
 
+  <!-- loading -->
+  <div class="col-xs-12 text-center" data-ng-if="loader">
+    <legend>Searching torrents, please wait...</legend>
+    <div class="large loader"></div>
+  </div>
+  <!-- /loading-->
+
   <!-- alert if the app can't get results for the query -->
   <div class="col-xs-12 alert alert-warning" data-ng-if="noResults">
     <p>
@@ -123,7 +130,7 @@
 
   <!-- list of results -->
   <div class="col-xs-12" id="results" data-ng-if="results">
-    <br>
+    <legend class="text-center">Results</legend>
     <div class="alert alert-success">
       Yeah! You were able to find the torrent you are searching for!
     </div>
@@ -157,5 +164,35 @@
       </div>
     </div>
     <!-- /result -->
+
+    <!-- paginator -->
+    <div class="row">
+      <div class="col-xs-12">
+        <button data-ng-click="firstPage()" data-ng-if="!onFirstPage" class="btn btn-success pull-left" style="margin-right: 5px">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          First Page
+        </button>
+        <button data-ng-click="prevPage()" data-ng-if="!onFirstPage" class="btn btn-success pull-left">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          Prev
+        </button>
+        <button data-ng-click="nextPage()" data-ng-if="!onLastPage" class="btn btn-success pull-right">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          Next
+        </button>
+      </div>
+    </div>
+    <!-- /paginator -->
+
+    <!-- go top -->
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <button data-ng-click="goTop()" data-ng-if="results" class="btn btn-success">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+        </button>
+      </div>
+    </div>
+    <!-- /go top -->
   </div>
 

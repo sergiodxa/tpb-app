@@ -5,25 +5,7 @@
   <title>TPB App</title>
   <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./vendor/bootstrap/dist/css/bootstrap-theme.min.css">
-  <style>
-    .text-overflow {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .row {
-      margin-bottom: 10px;
-    }
-    .form-horizontal {
-      margin-top: 10px;
-    }
-    .container {
-      -webkit-box-sizing: boder-box;
-      -moz-box-sizing: boder-box;
-      box-sizing: boder-box;
-      padding: 0 25px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/main.css">
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -45,7 +27,7 @@
     <div class="row">
       <div class="col-md-8" data-ng-view>
       </div>
-      <div class="col-md-4" ng-controller="SidebarCtrl">
+      <div class="hidden-xs hidden-sm col-md-4" ng-controller="SidebarCtrl">
         <form class="form col-xs-12" role="form" data-ng-submit="search()">
           <legend class="text-center" >Search torrent</legend>
 
