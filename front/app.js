@@ -25,16 +25,17 @@ function ResultsCtrl ($http, $scope, $routeParams) {
   var orderAscDesc = $routeParams.ascdesc;
   var orderBy      = $routeParams.order;
   var query        = $routeParams.query;
+  var page         = $routeParams.page;
 
   $scope.category     = category;
   $scope.orderAscDesc = orderAscDesc;
   $scope.orderBy      = orderBy;
   $scope.query        = query;
 
-  if (sessionStorage[query + category + orderBy + orderAscDesc]) {
+  if (sessionStorage[query + category + orderBy + orderAscDesc + page]) {
     $scope.error = false;
     $scope.noResults = false;
-    $scope.results = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc]);
+    $scope.results = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc + page]);
   } else {
     $http({
       method: 'GET',
@@ -43,46 +44,78 @@ function ResultsCtrl ($http, $scope, $routeParams) {
         searchQuery : query,
         orderBy     : orderBy,
         orderAscDesc: orderAscDesc,
-        category    : category
+        category    : category,
+        page        : page
       }
     }).success(function (data, status, headers, config) {
       if (data == false) {
-        $scope.error = false;
-        $scope.results = false;
+        $scope.error     = false;
+        $scope.results   = false;
+        $scope.notPage   = false;
         $scope.noResults = true;
+      } else if (data == 'Page doesn\' exist') {
+        $scope.error     = false;
+        $scope.results   = false;
+        $scope.noResulta = false;
+        $scope.notPage   = true;
       } else {
-        $scope.error = false;
+        $scope.error     = false;
         $scope.noResults = false;
-        $scope.results = data;
-        sessionStorage[query + category + orderBy + orderAscDesc] = JSON.stringify(data);
-      }
+        $scope.notPage   = false;
+        $scope.results   = data;
+        sessionStorage[query + category + orderBy + orderAscDesc + page] = JSON.stringify(data);
+      };
     }).error(function (data, status, headers, config) {
       $scope.noResults = false;
-      $scope.results = false;
-      $scope.error = true;
+      $scope.results   = false;
+      $scope.notPage   = false;
+      $scope.error     = true;
     });
-  }
+  };
 
   $scope.search = function () {
     var query        = $scope.query;
     var orderBy      = $scope.orderBy || 'seeds';
     var orderAscDesc = $scope.orderAscDesc || 'desc';
-    var category     = $scope.category || '0'
+    var category     = $scope.category || '0';
+    var page         = 0;
 
-    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc;
-  }
+    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc + '/' + page;
+  };
+
+  $scope.nextPage = function () {
+    var query        = $scope.query;
+    var orderBy      = $scope.orderBy || 'seeds';
+    var orderAscDesc = $scope.orderAscDesc || 'desc';
+    var category     = $scope.category || '0';
+    var page         = $routeParams.page++;
+
+    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc + '/' + page;
+  };
+
+  $scope.prevPage = function () {
+    var query        = $scope.query;
+    var orderBy      = $scope.orderBy || 'seeds';
+    var orderAscDesc = $scope.orderAscDesc || 'desc';
+    var category     = $scope.category || '0';
+    var page         = $routeParams.page--;
+
+    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc + '/' + page;
+  };
 };
 
 function SidebarCtrl ($scope) {
   $scope.orderBy      = 'seeds';
   $scope.orderAscDesc = 'desc';
   $scope.category     = '0';
+
   $scope.search = function () {
     var query        = $scope.query;
     var orderBy      = $scope.orderBy || 'seeds';
     var orderAscDesc = $scope.orderAscDesc || 'desc';
-    var category     = $scope.category || '0'
+    var category     = $scope.category || '0';
+    var page         = 0;
 
-    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc;
+    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc + '/' + page;
   }
 }

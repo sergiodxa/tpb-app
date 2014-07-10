@@ -113,6 +113,14 @@
     </p>
   </div>
 
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="notPage">
+    <p>
+      Sorry, but that page doesn't exist.<br>
+      Please try another page.
+    </p>
+  </div>
+
   <!-- list of results -->
   <div class="col-xs-12" id="results" data-ng-if="results">
     <br>
