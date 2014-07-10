@@ -21,10 +21,15 @@ angular.module('TPBApp', ['ngRoute'])
 
 function ResultsCtrl ($http, $scope, $routeParams) {
 
-  var category     = $scope.category = $routeParams.category;
-  var orderAscDesc = $scope.orderAscDesc = $routeParams.ascdesc;
-  var orderBy      = $scope.orderBy = $routeParams.order;
-  var query        = $scope.query = $routeParams.query;
+  var category     = $routeParams.category;
+  var orderAscDesc = $routeParams.ascdesc;
+  var orderBy      = $routeParams.order;
+  var query        = $routeParams.query;
+
+  $scope.category     = category;
+  $scope.orderAscDesc = orderAscDesc;
+  $scope.orderBy      = orderBy;
+  $scope.query        = query;
 
   if (sessionStorage[query + category + orderBy + orderAscDesc]) {
     $scope.error = false;
