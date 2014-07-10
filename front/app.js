@@ -21,10 +21,10 @@ angular.module('TPBApp', ['ngRoute'])
 
 function ResultsCtrl ($http, $scope, $routeParams) {
 
-  var category     = $routeParams.category;
-  var orderAscDesc = $routeParams.ascdesc;
-  var orderBy      = $routeParams.order;
-  var query        = $routeParams.query;
+  var $scope.category     = category     = $routeParams.category;
+  var $scope.orderAscDesc = orderAscDesc = $routeParams.ascdesc;
+  var $scope.orderBy      = orderBy      = $routeParams.order;
+  var $scope.query        = query        = $routeParams.query;
 
   if (sessionStorage[query + category + orderBy + orderAscDesc]) {
     $scope.error = false;
@@ -49,13 +49,22 @@ function ResultsCtrl ($http, $scope, $routeParams) {
         $scope.error = false;
         $scope.noResults = false;
         $scope.results = data;
-        sessionStorage[query + orderBy + orderAscDesc] = JSON.stringify(data);
+        sessionStorage[query + category + orderBy + orderAscDesc] = JSON.stringify(data);
       }
     }).error(function (data, status, headers, config) {
       $scope.noResults = false;
       $scope.results = false;
       $scope.error = true;
     });
+  }
+
+  $scope.search = function () {
+    var query        = $scope.query;
+    var orderBy      = $scope.orderBy || 'seeds';
+    var orderAscDesc = $scope.orderAscDesc || 'desc';
+    var category     = $scope.category || '0'
+
+    window.location  = '#/results/' + query + '/' + category + '/' + orderBy + '/' + orderAscDesc;
   }
 };
 

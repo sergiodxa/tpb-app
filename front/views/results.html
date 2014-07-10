@@ -1,6 +1,6 @@
   <!-- visible only in sm and xs -->
-  <form class="form-inline hidden-md hidden-lg col-xs-12" role="form" data-ng-submit="search()">
-    <legend class="text-center" >Search torrent</legend>
+  <form class="form hidden-md hidden-lg col-xs-12" role="form" data-ng-submit="search()">
+    <legend class="text-center">Search torrent</legend>
 
     <div class="form-group">
       <input class="form-control" type="text" id="query" name="query" data-ng-model="query" placeholder="Query">
@@ -23,6 +23,71 @@
       <select name="ascdesc" id="asdesc" data-ng-model="orderAscDesc" class="form-control">
         <option value="asc">Ascendant</option>
         <option value="desc">Descendant</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">
+        Category
+      </label>
+      <select name="category" id="category" data-ng-model="category" class="form-control">
+        <option value="0">All</option>
+        <optgroup label="Audio">
+          <option value="101">Music</option>
+          <option value="102">Audio books</option>
+          <option value="103">Sounds Clips</option>
+          <option value="104">FLAC</option>
+          <option value="199">Other</option>
+        </optgroup>
+        <optgroup label="Video">
+          <option value="201">Movies</option>
+          <option value="202">Movies DVDR</option>
+          <option value="203">Music videos</option>
+          <option value="204">Movie clips</option>
+          <option value="205">TV shows</option>
+          <option value="206">Handheld</option>
+          <option value="207">HD - Movies</option>
+          <option value="208">HD - TV shows</option>
+          <option value="209">3D</option>
+          <option value="299">Other</option>
+        </optgroup>
+        <optgroup label="Applications">
+          <option value="301">Windows</option>
+          <option value="302">Mac</option>
+          <option value="303">UNIX</option>
+          <option value="304">Handheld</option>
+          <option value="305">IOS (iPad/iPhone)</option>
+          <option value="306">Android</option>
+          <option value="399">Other OS</option>
+        </optgroup>
+        <optgroup label="Games">
+          <option value="401">PC</option>
+          <option value="402">Mac</option>
+          <option value="403">PSx</option>
+          <option value="404">XBOX 360</option>
+          <option value="405">Wii</option>
+          <option value="406">Handheld</option>
+          <option value="407">iOS (iPad/iPhone)</option>
+          <option value="408">Android</option>
+          <option value="499">Other</option>
+        </optgroup>
+        <optgroup label="Porn">
+          <option value="501">Movies</option>
+          <option value="502">Movies DVDR</option>
+          <option value="503">Pictures</option>
+          <option value="504">Games</option>
+          <option value="505">HD - Movies</option>
+          <option value="506">Movie clips</option>
+          <option value="599">Other</option>
+        </optgroup>
+        <optgroup label="Other">
+          <option value="601">E-books</option>
+          <option value="602">Comics</option>
+          <option value="603">Pictures</option>
+          <option value="604">Covers</option>
+          <option value="605">Physibles</option>
+          <option value="699">Other</option>
+        </optgroup>
       </select>
     </div>
 
@@ -58,7 +123,7 @@
       <div class="col-xs-2"><strong>Category</strong></div>
       <div class="col-xs-4 col-sm-7"><strong>Data</strong></div>
       <div class="col-xs-2 col-sm-1"><strong>Seeds</strong></div>
-      <div class="col-xs-2 col-sm-1"><strong>Peers</strong></div>
+      <div class="col-xs-2 col-sm-1"><strong>Leeches</strong></div>
       <div class="col-xs-2 col-sm-1"><strong>Magnet</strong></div>
     </div>
     <!-- result -->
