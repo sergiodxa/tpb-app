@@ -34,7 +34,7 @@ function ResultsCtrl ($http, $scope, $routeParams) {
   if (sessionStorage[query + category + orderBy + orderAscDesc]) {
     $scope.error = false;
     $scope.noResults = false;
-    $scope.results = JSON.parse(sessionStorage[query + category + category + orderBy + orderAscDesc]);
+    $scope.results = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc]);
   } else {
     $http({
       method: 'GET',
