@@ -37,7 +37,7 @@ function ResultsCtrl ($http, $scope, $routeParams) {
   if (page == 0) {
     $scope.onFirstPage = true;
     $scope.onLastPage  = false;
-  } else if (page == 0) {
+  } else if (page == 99) {
     $scope.onFirstPage = false;
     $scope.onLastPage  = true;
   } else {
