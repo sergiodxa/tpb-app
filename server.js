@@ -36,6 +36,26 @@ app.get('/search', function (req, res) {
 
 });
 
+app.get('/top', function (req, res) {
+  // get the category query from the URL
+  var categoryQuery = req.query.category;
+
+  if (categoryQuery == 0) {
+    tpb.topTorrents().then(function (results) {
+      res.send(results);
+    }).catch(function (err) {
+      res.send(false);
+    });
+  } else {
+    tpb.topTorrents(categoryQuery).then(function (results) {
+      res.send(results);
+    }).catch(function (err) {
+      res.send(false);
+    });
+  };
+
+});
+
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
   console.log('Listening on ' + port);
