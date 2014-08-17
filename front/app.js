@@ -74,18 +74,21 @@ function ResultsCtrl ($http, $scope, $routeParams) {
         $scope.error     = false;
         $scope.results   = false;
         $scope.notPage   = false;
+        $scope.paginator = false;
         $scope.noResults = true;
       } else if (data == 'Page doesn\' exist') {
         $scope.loader    = false;
         $scope.error     = false;
         $scope.results   = false;
         $scope.noResulta = false;
+        $scope.paginator = false;
         $scope.notPage   = true;
       } else {
         $scope.loader    = false;
         $scope.error     = false;
         $scope.noResults = false;
         $scope.notPage   = false;
+        $scope.paginator = true;
         $scope.results   = data;
         sessionStorage[query + category + orderBy + orderAscDesc + page] = JSON.stringify(data);
       };
