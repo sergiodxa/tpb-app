@@ -27,5 +27,13 @@ angular.module('TPBApp', ['ngRoute'])
           controller : RecentsCtrl,
           templateUrl: 'views/results.html'
         })
+        .when('/tv', {
+          controller : TVCtrl,
+          templateUrl: 'views/tv.html'
+        })
+        .when('/tv/:id', {
+          controller : SerieCtrl,
+          templateUrl: 'views/serie.html'
+        })
         .otherwise({ redirectTo: '/' });
     });

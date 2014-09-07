@@ -1,0 +1,41 @@
+<section class="row">
+  <!-- loading -->
+  <div class="col-xs-12 text-center" data-ng-if="loader">
+    <legend>Searching series, please wait...</legend>
+    <div class="large loader"></div>
+  </div>
+  <!-- /loading-->
+
+  <!-- alert if the app can't get results for the query -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="noResults">
+    <p>
+      Sorry, but we can't find any serie.
+    </p>
+  </div>
+
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-danger" data-ng-if="error">
+    <p>
+      Sorry, we have a problem right now with the app.<br>
+      Please try later.
+    </p>
+  </div>
+
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="notPage">
+    <p>
+      Sorry, but that page doesn't exist.<br>
+      Please try another page.
+    </p>
+  </div>
+
+  <article class="col-sm-4" data-ng-repeat="serie in series" data-ng-if="series">
+    <legend>
+      <a href="#/tv/{{serie.id}}" data-ng-bind="serie.title"></a>
+    </legend>
+    <strong>Seasons:</strong>
+    <div class="row">
+      <div class="col-sm-2" data-ng-repeat="season in serie.seasons" data-ng-bind="season"></div>
+    </div>
+  </article>
+</section>

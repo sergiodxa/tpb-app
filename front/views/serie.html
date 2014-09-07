@@ -1,0 +1,40 @@
+<div class="row">
+  <!-- loading -->
+  <div class="col-xs-12 text-center" data-ng-if="loader">
+    <legend>Searching seasons, please wait...</legend>
+    <div class="large loader"></div>
+  </div>
+  <!-- /loading-->
+
+  <!-- alert if the app can't get results for the query -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="noResults">
+    <p>
+      Sorry, but we can't find any season.
+    </p>
+  </div>
+
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-danger" data-ng-if="error">
+    <p>
+      Sorry, we have a problem right now with the app.<br>
+      Please try later.
+    </p>
+  </div>
+
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="notPage">
+    <p>
+      Sorry, but that page doesn't exist.<br>
+      Please try another page.
+    </p>
+  </div>
+
+  <div class="col-xs-12" data-ng-repeat="season in results" data-ng-if="results">
+    <legend ng-bind="season.title"></legend>
+    <div class="row">
+      <div class="col-sm-6" data-ng-repeat="torrent in season.torrents">
+        <a href="/torrent/{{torrent.id}}" data-ng-bind="torrent.title"></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -59,8 +59,26 @@ app.get('/recents', function (req, res) {
     res.send(results);
   }).catch(function (err) {
     res.send(false);
-  })
-})
+  });
+});
+
+app.get('/tv', function (req, res) {
+  var serieID = req.query.id || null;
+
+  if (serieID) {
+    tpb.getTvShow(serieID).then(function (response) {
+      res.send(response);
+    }).catch(function (err) {
+      res.send(false);
+    });
+  } else {
+    tpb.tvShows().then(function (results) {
+      res.send(results);
+    }).catch(function (err) {
+      res.send(false);
+    });
+  }
+});
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
