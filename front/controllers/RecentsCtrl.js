@@ -29,6 +29,10 @@ function RecentsCtrl ($http, $scope) {
         $scope.error     = false;
         $scope.noResults = false;
         $scope.notPage   = false;
+        for (var i = 0; i < data.length; i++) {
+          var link = data[i].link.split('/')[4];
+          data[i].link = '#/torrent/' + link;
+        }
         $scope.results   = data;
         sessionStorage['recents'] = JSON.stringify(data);
       };
