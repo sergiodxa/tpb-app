@@ -33,7 +33,6 @@ app.get('/search', function (req, res) {
   }).catch(function (err){
       res.send(false);
   });
-
 });
 
 app.get('/top', function (req, res) {
@@ -53,8 +52,15 @@ app.get('/top', function (req, res) {
       res.send(false);
     });
   };
-
 });
+
+app.get('/recents', function (req, res) {
+  tpb.recentTorrents().then(function (results) {
+    res.send(results);
+  }).catch(function (err) {
+    res.send(false);
+  })
+})
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {

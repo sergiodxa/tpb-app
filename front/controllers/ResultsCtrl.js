@@ -1,4 +1,4 @@
-function ResultsCtrl ($http, $scope, $routeParams, torrents) {
+function ResultsCtrl ($http, $scope, $routeParams) {
 
   $scope.loader = true;
 
@@ -25,41 +25,51 @@ function ResultsCtrl ($http, $scope, $routeParams, torrents) {
   }
 
   if (sessionStorage[query + category + orderBy + orderAscDesc + page]) {
-    $scope.loader    = false;
-    $scope.error     = false;
+    $scope.loader = false;
+    $scope.error = false;
     $scope.noResults = false;
-    $scope.results   = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc + page]);
+    $scope.results = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc + page]);
   } else {
-    torrents.get(query, category, orderBy, orderAscDesc, page).then(function (response) {
-      if (response.status == 200) {
-        var data = response.data;
-        if (data == false) {
-          $scope.loader    = false;
-          $scope.error     = false;
-          $scope.results   = false;
-          $scope.notPage   = false;
-          $scope.noResults = true;
-        } else if (data == 'Page doesn\' exist') {
-          $scope.loader    = false;
-          $scope.error     = false;
-          $scope.results   = false;
-          $scope.noResulta = false;
-          $scope.notPage   = true;
-        } else {
-          $scope.loader    = false;
-          $scope.error     = false;
-          $scope.noResults = false;
-          $scope.notPage   = false;
-          $scope.results   = data;
-          sessionStorage[query + category + orderBy + orderAscDesc + page] = JSON.stringify(data);
-        };
-      } else {
+    $http({
+      method: 'GET',
+      url   : '/search',
+      params: {
+        searchQuery : query,
+        orderBy     : orderBy,
+        orderAscDesc: orderAscDesc,
+        category    : category,
+        page        : page
+      }
+    }).success(function (data, status, headers, config) {
+      if (data == false) {
         $scope.loader    = false;
-        $scope.noResults = false;
+        $scope.error     = false;
         $scope.results   = false;
         $scope.notPage   = false;
-        $scope.error     = true;
+        $scope.paginator = false;
+        $scope.noResults = true;
+      } else if (data == 'Page doesn\' exist') {
+        $scope.loader    = false;
+        $scope.error     = false;
+        $scope.results   = false;
+        $scope.noResulta = false;
+        $scope.paginator = false;
+        $scope.notPage   = true;
+      } else {
+        $scope.loader    = false;
+        $scope.error     = false;
+        $scope.noResults = false;
+        $scope.notPage   = false;
+        $scope.paginator = true;
+        $scope.results   = data;
+        sessionStorage[query + category + orderBy + orderAscDesc + page] = JSON.stringify(data);
       };
+    }).error(function (data, status, headers, config) {
+      $scope.loader    = false;
+      $scope.noResults = false;
+      $scope.results   = false;
+      $scope.notPage   = false;
+      $scope.error     = true;
     });
   };
 
@@ -78,6 +88,7 @@ function ResultsCtrl ($http, $scope, $routeParams, torrents) {
     var orderBy      = $scope.orderBy || 'seeds';
     var orderAscDesc = $scope.orderAscDesc || 'desc';
     var category     = $scope.category || '0';
+    var page         = parseInt($routeParams.page);
     page++
 
     $('html, body').animate({ scrollTop:  $('#results').offset().top - 50 }, 800);
@@ -90,6 +101,7 @@ function ResultsCtrl ($http, $scope, $routeParams, torrents) {
     var orderBy      = $scope.orderBy || 'seeds';
     var orderAscDesc = $scope.orderAscDesc || 'desc';
     var category     = $scope.category || '0';
+    var page         = parseInt($routeParams.page);
     page--
 
     $('html, body').animate({ scrollTop:  $('#results').offset().top - 50 }, 800);
@@ -112,10 +124,4 @@ function ResultsCtrl ($http, $scope, $routeParams, torrents) {
   $scope.goTop = function () {
     $('html, body').animate({ scrollTop:  $('#results').offset().top - 50 }, 800);
   };
-
-  $scope.moreResults = function () {
-    page--
-
-
-  }
 };
