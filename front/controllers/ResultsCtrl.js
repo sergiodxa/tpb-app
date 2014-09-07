@@ -29,6 +29,10 @@ function ResultsCtrl ($http, $scope, $routeParams) {
     $scope.error = false;
     $scope.noResults = false;
     $scope.results = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc + page]);
+    for (var i = 0; i < $scope.results.length; i++) {
+      var link = $scope.results[i].link.split('/')[4];
+      $scope.results[i].link = '#/torrent/' + link;
+    }
   } else {
     $http({
       method: 'GET',
@@ -61,6 +65,10 @@ function ResultsCtrl ($http, $scope, $routeParams) {
         $scope.noResults = false;
         $scope.notPage   = false;
         $scope.paginator = true;
+        for (var i = 0; i < data.length; i++) {
+          var link = data[i].link.split('/')[4];
+          data[i].link = '#/torrent/' + link;
+        }
         $scope.results   = data;
         sessionStorage[query + category + orderBy + orderAscDesc + page] = JSON.stringify(data);
       };

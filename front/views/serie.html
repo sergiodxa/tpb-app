@@ -33,7 +33,7 @@
     <legend ng-bind="season.title"></legend>
     <div class="row">
       <div class="col-sm-6" data-ng-repeat="torrent in season.torrents">
-        <a href="/torrent/{{torrent.id}}" data-ng-bind="torrent.title"></a>
+        <a data-ng-href="#/torrent/{{torrent.id}}" data-ng-bind="torrent.title"></a>
       </div>
     </div>
   </div>

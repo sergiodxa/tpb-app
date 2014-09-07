@@ -1,0 +1,66 @@
+<div class="row">
+  <!-- loading -->
+  <div class="col-xs-12 text-center" data-ng-if="loader">
+    <legend>Searching torrent, please wait...</legend>
+    <div class="large loader"></div>
+  </div>
+  <!-- /loading-->
+
+  <!-- alert if the app can't get results for the query -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="noResults">
+    <p>
+      Sorry, but we can't find this torrent.
+    </p>
+  </div>
+
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-danger" data-ng-if="error">
+    <p>
+      Sorry, we have a problem right now with the app.<br>
+      Please try later.
+    </p>
+  </div>
+
+  <!-- alert if the app can't get results because an error -->
+  <div class="col-xs-12 alert alert-warning" data-ng-if="notPage">
+    <p>
+      Sorry, but that page doesn't exist.<br>
+      Please try another page.
+    </p>
+  </div>
+
+  <div class="col-xs-12" data-ng-if="torrent">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title" data-ng-bind="torrent.name"></h3>
+        </div>
+        <div class="panel-body">
+          <strong>Torrent info:</strong>
+          <ul>
+            <li>
+              <strong>Files:</strong> <span data-ng-bind="torrent.filesCount"></span>
+            </li>
+            <li>
+              <strong>Size:</strong> <span data-ng-bind="torrent.size"></span>
+            </li>
+            <li>
+              <strong>Seeders:</strong> <span data-ng-bind="torrent.seeders"></span>
+            </li>
+            <li>
+              <strong>leechers:</strong> <span data-ng-bind="torrent.leechers"></span>
+            </li>
+            <li>
+              <strong>Uploaded:</strong> <span data-ng-bind="torrent.uploadDate"></span>
+            </li>
+          </ul>
+
+          <p data-ng-bind="torrent.description"></p>
+        </div>
+        <div class="panel-footer">
+          <a data-ng-href="{{torrent.magnetLink}}" class="btn btn-primary btn-block">
+            Download torrent
+          </a>
+        </div>
+    </div>
+  </div>
+</div>

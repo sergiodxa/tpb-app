@@ -6,7 +6,7 @@
 angular.module('TPBApp', ['ngRoute'])
   .config(function ($routeProvider, $compileProvider) {
 
-      $compileProvider.aHrefSanitizationWhitelist(/^\s*(magnet|file):/);
+      $compileProvider.aHrefSanitizationWhitelist(/^\s*(magnet|file):|torrent|tv/);
 
       $routeProvider
         .when('/', {
@@ -34,6 +34,10 @@ angular.module('TPBApp', ['ngRoute'])
         .when('/tv/:id', {
           controller : SerieCtrl,
           templateUrl: 'views/serie.html'
+        })
+        .when('/torrent/:id', {
+          controller : TorrentCtrl,
+          templateUrl: 'views/torrent.html'
         })
         .otherwise({ redirectTo: '/' });
     });

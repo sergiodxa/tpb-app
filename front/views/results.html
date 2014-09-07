@@ -149,7 +149,7 @@
       </div>
       <div class="col-xs-4 col-sm-7">
         <div class="text-overflow">
-          <span data-ng-bind="torrent.name" title="{{torrent.name}}"></span>
+          <a data-ng-href="{{torrent.link}}" data-ng-bind="torrent.name" title="{{torrent.name}}"></a>
         </div>
         <small>
           Size: <span data-ng-bind="torrent.size"></span> | Upload date: <span data-ng-bind="torrent.uploadDate"></span>
