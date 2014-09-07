@@ -8,7 +8,7 @@ Location: Buenos Aires, Argentina.
 
 /* SITE */
 
-Last update: 7/10/2014
+Last update: 9/07/2014
 Standards: HTML5, CSS3, Responsive Web Design
 Frontend Libraries: AngularJS, Bootstrap & jQuery.
 Backend Libraries: Bower, ExpressJS, logfmt, thepiratebay & NodeJS

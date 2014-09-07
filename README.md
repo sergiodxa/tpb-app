@@ -1,8 +1,8 @@
 # TPB App
 * **Author**: Sergio Daniel Xalambrí
-* **Last change**: 7/10/2014
+* **Last change**: 9/07/2014
 * **Twitter**: [@sergiodxa](http://twitter.com/sergiodxa "@sergiodxa")
-* **Version**: 1.4.0
+* **Version**: 1.5.0
 * **WebApp Url**: [http://tpb-app.herokuapp.com/#/](http://tpb-app.herokuapp.com/#/ "http://tpb-app.herokuapp.com/#/")
 
 WebApp in NodeJS to search torrents in The Pirate Bay
