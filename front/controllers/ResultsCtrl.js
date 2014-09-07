@@ -29,10 +29,6 @@ function ResultsCtrl ($http, $scope, $routeParams) {
     $scope.error = false;
     $scope.noResults = false;
     $scope.results = JSON.parse(sessionStorage[query + category + orderBy + orderAscDesc + page]);
-    for (var i = 0; i < $scope.results.length; i++) {
-      var link = $scope.results[i].link.split('/')[4];
-      $scope.results[i].link = '#/torrent/' + link;
-    }
   } else {
     $http({
       method: 'GET',
